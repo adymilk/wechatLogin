@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>前端页面</title>
+</head>
+<body>
+
+<h1 align="center">魔力点餐</h1>
+    <table align="center" width="50%" border="1">
+        <tr>
+            <th>ID</th>
+            <th>微信昵称</th>
+            <th>头像</th>
+            <th>点赞数</th>
+        </tr>
+
+        {volist	name="list"	id="vo"}
+        <tr>
+            <td>{$vo.id}</td>
+            <td><a href="__ROOT__/index.php/index/Index/addVote?id={$vo.id}">{$vo.name}</a></td>
+            <td>{$vo.headimgurl}</td>
+            <td>{$vo.voted}</td>
+        </tr>
+        {/volist}
+    </table>
+</body>
+</html>
