@@ -19,7 +19,7 @@ return [
     // 应用调试模式
     'app_debug'              => false,
     // 应用Trace
-    'app_trace'              => true,
+    'app_trace'              => false,
     // 应用模式状态
     'app_status'             => '',
     // 是否支持多模块
@@ -116,6 +116,15 @@ return [
     'request_cache_expire'   => null,
     // 全局请求缓存排除规则
     'request_cache_except'   => [],
+
+    // 视图输出字符串内容替换
+    'view_replace_str'       => [
+        '__IMG__' => '/public/static/images',
+        '__CSS__' => '/public/static/css',
+        '__JS__' => '/public/static/js',
+        '__STATIC__' => '/public/static',
+        '__LIB__' => '/public/lib',
+    ],
 
     // +----------------------------------------------------------------------
     // | 模板设置

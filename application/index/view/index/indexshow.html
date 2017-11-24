@@ -15,43 +15,87 @@
             <img src="__STATIC__/upload/bg-3.png" alt="" width="100%"  class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s"/>
             <img src="__STATIC__/upload/zan.png" alt="" class="zan"/>
         </section>
+		
+		
+		<section class="swiper-slide swiper-slide4">
+            <img src="__STATIC__/upload/lt.png" alt="" width="10%"/>
+            <img src="__STATIC__/upload/top.png" alt="" class="ani top" width="60%" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s"/>
+            
+			
+			
+			<div class="swiper-container2">
+				<div class="swiper-wrapper">
+				{volist	name="allcommunityList"	id="vo"  mod="2"}
+					{eq name="mod" value="0"}<div class="swiper-slide">{/eq}
+						
+					   <div class="person man ani" swiper-animate-effect="flipInX" swiper-animate-duration="2s" swiper-animate-delay="0s">
+						   <span><i class="shequ{$vo.id}">{$vo.voted}</i>赞<b onclick="addShequzan('{$vo.name}')"><img src="__STATIC__/upload/hart.png" alt=""/></b></span>
+						   <div class="blue">
+							   <img src="__STATIC__/upload/danghui.png"/>
+							   <h3>{$vo.name}</h3>
+						   </div>
+						   <p>
+							   {$vo.Introduction}
+						   </p>
+					   </div>
+
+					{eq name="mod" value="1"}</div>{/eq}
+                       	   
+				{/volist}
+				</div>
+			 
+			    <div class="swiper-pagination2"></div>
+                   <img src="__STATIC__/images/arrow-r.png" alt="" class="left"/>
+               </div>
+			
+			
+			<!-- <div class="po"> -->
+                <!-- {volist	name="allcommunityList" id="vo"} -->
+                <!-- <div class='person person3 ani' swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0s"> -->
+                    <!-- <div class="blue"> -->
+                        <!-- <h3><i>1</i>{$vo.name}</h3> -->
+                    <!-- </div> -->
+                    <!-- <p>{$vo.Introduction}</p> -->
+                    <!-- <span><i  class="shequ{$vo.id}">{$vo.voted}</i>赞<b><img src="__STATIC__/upload/hart.png" onclick="addShequzan('{$vo.name}')" alt=""/></b></span> -->
+                <!-- </div> -->
+                <!-- {/volist} -->
+            <!-- </div> -->
+            <!-- <img src="__STATIC__/images/arrow-r.png" class="open" style="display: block;" alt="" width="100%"/> -->
+        </section>
+		
         <section class="swiper-slide swiper-slide4">
             <img src="__STATIC__/upload/lt.png" alt="" width="10%"/>
             <img src="__STATIC__/upload/top2.png" alt="" class="ani top" width="60%" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s"/>
-            <div class="po">
-                <div class="zu">
-                    {volist	name="list"	id="vo"}
-                    <div class='person ani' swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0s">
-                        <span><i class="myzan{$vo.id}">{$vo.voted}</i>赞<b onclick="fabulous('{$vo.name}')"><img src="__STATIC__/upload/hart.png" alt=""/></b></span>
-                        <div class="blue">
-                            <h3>{$vo.name}</h3>
-                            <img src="__STATIC__/upload/danghui.png" />
-                            <span>{$vo.community}</span>
-                        </div>
-                        <p>{$vo.introduction}</p>
-                    </div>
-                    {/volist}
-                </div>
-                <!--{$page}-->
+            
+			 <div class="swiper-container1">
+				<div class="swiper-wrapper">
+				{volist	name="allUser"	id="vo"  mod="2"}
+					{eq name="mod" value="0"}<div class="swiper-slide">{/eq}
+						
+					   <div class="person man ani" swiper-animate-effect="flipInX" swiper-animate-duration="2s" swiper-animate-delay="0s">
+						   <span><i class="myzan{$vo.id}">{$vo.voted}</i>赞<b onclick="fabulous('{$vo.name}')"><img src="__STATIC__/upload/hart.png" alt=""/></b></span>
+						   <div class="blue">
+							   <img src="__STATIC__/upload/danghui.png"/>
+							   <h3>{$vo.name}</h3>
+							   <span>{$vo.community}</span>
+						   </div>
+						   <p>
+							   {$vo.introduction}
+						   </p>
+					   </div>
 
-            </div>
+					{eq name="mod" value="1"}</div>{/eq}
+                       	   
+				{/volist}
+				</div>
+			 
+			    <div class="swiper-pagination1"></div>
+                   <img src="__STATIC__/images/arrow-r.png" alt="" class="left"/>
+               </div>
+			   
+			   
         </section>
-        <section class="swiper-slide swiper-slide4">
-            <img src="__STATIC__/upload/lt.png" alt="" width="10%"/>
-            <img src="__STATIC__/upload/top.png" alt="" class="ani top" width="60%" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s"/>
-            <div class="po">
-                {volist	name="shequ" id="vo"}
-                <div class='person person3 ani' swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0s">
-                    <div class="blue">
-                        <h3><i>1</i>{$vo.name}</h3>
-                    </div>
-                    <p>{$vo.Introduction}</p>
-                    <span><i  class="shequ{$vo.id}">{$vo.voted}</i>赞<b><img src="__STATIC__/upload/hart.png" onclick="addShequzan('{$vo.name}')" alt=""/></b></span>
-                </div>
-                {/volist}
-            </div>
-            <!--{$page2}-->
-        </section>
+        
 
         <!--先锋队伍榜 begin-->
         <section class="swiper-slide swiper-slide5">
@@ -61,8 +105,8 @@
             </div>
             <ul>
                 {volist	name="allcommunityList" id="vo"}
-                <li class="dui ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
-                    <h4><span>1</span>{$vo.name}</h4>
+                <li class="dui ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
+                    <h4><span class="pai_ming">1</span>{$vo.name}</h4>
                     <div>
                         <span class="shequ{$vo.id}">{$vo.voted}</span>
                         <img src="__STATIC__/upload/hart.png"  onclick="addShequzan('{$vo.name}')" alt=""/>
@@ -82,9 +126,9 @@
                 <img src="__STATIC__/upload/san.png" alt=""/>
             </div>
             <ul>
-                {volist	name="allUserList"	id="vo"}
-                <li class="dui ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
-                    <h4><span></span>{$vo.name}<b>{$vo.community}</b></h4>
+                {volist	name="user_top10"	id="vo"}
+                <li class="dui ani resize" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
+                    <h4><span class="pai_ming">1</span>{$vo.name}<b>{$vo.community}</b></h4>
                     <div>
                         <span class="myzan{$vo.id}">{$vo.voted}</span>
                         <img src="__STATIC__/upload/hart.png" alt="" onclick="fabulous('{$vo.name}')"/>
@@ -98,7 +142,7 @@
         <section class="swiper-slide swiper-slide1 swiper-slide8">
             <img src="__STATIC__/upload/text4.png" alt="" class="ani resize text4" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s"/>
             <p class="ani resize" swiper-animate-effect="slideInRight" swiper-animate-duration="1.5s" swiper-animate-delay="0.1s">--点“靓”光明主题系列活动</p>
-            <div class="ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">
+            <div class="ani resize" swiper-animate-effect="rollIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">
                 <img src="__STATIC__/upload/erweima.png" alt=""/>
             </div>
             <p class="ani resize" swiper-animate-effect="slideInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s">详情长按二维码关注</p>
@@ -117,7 +161,16 @@
 
 {block name='footer'}
 <script>
-
+    var swiper = new Swiper('.swiper-container1', {
+        effect: 'flip',
+        grabCursor: true,
+        pagination : '.swiper-pagination1'
+    });
+    var swiper2 = new Swiper('.swiper-container2', {
+        effect: 'flip',
+        grabCursor: true,
+        pagination : '.swiper-pagination2'
+    });
     scaleW=window.innerWidth/320;
     scaleH=window.innerHeight/480;
     var resizes = document.querySelectorAll('.resize');
@@ -227,6 +280,13 @@
     function getLocal() {
         return localStorage.getItem('fab')
     }
+
+    //排名
+    for (var i=1; i<=10; i++){
+        $('.pai_ming:nth-child(i)').html(i);
+        i = i++;
+    }
+
 </script>
 {/block}
 

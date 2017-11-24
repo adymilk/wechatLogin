@@ -25,8 +25,10 @@ class Index extends Controller
         $this->assign('allUser',$row);
 
         //票数做多的社区
-        $row = User::table('table_community')->order('voted DESC')->select();
+        $row = User::table('table_community')->order('voted DESC')->limit(0,3)->select();
         $this->assign('allcommunityList',$row);
+
+
 
         //风采人物分页
         $count = User::table('table_user')->count();
@@ -64,31 +66,31 @@ class Index extends Controller
     //存储用户信息
     public function addUser()
     {
-        $appid = "wx0224c2c452f6e2b9";
-        $secret = "c4ee683dd34968489e7325cd4ab2e504";
-
-        $code = $_GET['code'];
-        $get_token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$appid.'&secret='.$secret.'&code='.$code.'&grant_type=authorization_code';
-
-        $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,$get_token_url);
-        curl_setopt($ch,CURLOPT_HEADER,0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-        $res = curl_exec($ch);
-        curl_close($ch);
-        $json_obj = json_decode($res,true);
-
-        //根据openid和access_token查询用户信息
-//        $access_token = $json_obj['access_token'];
-        $openid = $json_obj['openid'];
-
-        $wx_openid = $openid;
-//        dump($wx_openid);
-        Session('wx_openid',$wx_openid);
+//        $appid = "wx0224c2c452f6e2b9";
+//        $secret = "c4ee683dd34968489e7325cd4ab2e504";
+//
+//        $code = $_GET['code'];
+//        $get_token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$appid.'&secret='.$secret.'&code='.$code.'&grant_type=authorization_code';
+//
+//        $ch = curl_init();
+//        curl_setopt($ch,CURLOPT_URL,$get_token_url);
+//        curl_setopt($ch,CURLOPT_HEADER,0);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
+//        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+//        $res = curl_exec($ch);
+//        curl_close($ch);
+//        $json_obj = json_decode($res,true);
+//
+//        //根据openid和access_token查询用户信息
+////        $access_token = $json_obj['access_token'];
+//        $openid = $json_obj['openid'];
+//
+//        $wx_openid = $openid;
+////        dump($wx_openid);
+//        Session('wx_openid',$wx_openid);
 
         //测试openid
-//      $wx_openid = 99999;
+        $wx_openid = 99999;
         //存储用户微信openid到数据库
         User::table('table_wx_user')->where('id',1)->update(['openid' => $wx_openid]);
 
