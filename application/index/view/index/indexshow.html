@@ -1,0 +1,232 @@
+{extend name="temp/base" /}
+{block name='content'}
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <section class="swiper-slide swiper-slide1">
+            <img src="__STATIC__/upload/hongqi.png" alt="" width="100%"/>
+            <img src="__STATIC__/upload/text.png" alt="" class="ani resize text" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s"/>
+        </section>
+        <section class="swiper-slide swiper-slide2">
+            <img src="__STATIC__/upload/hongqi.png" alt="" width="100%"/>
+            <img src="__STATIC__/upload/text2.png" class="ani text2" alt="" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s"/>
+        </section>
+        <section class="swiper-slide swiper-slide3">
+            <img src="__STATIC__/upload/text3.png" class="text3" alt="" width="100%"/>
+            <img src="__STATIC__/upload/bg-3.png" alt="" width="100%"  class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s"/>
+            <img src="__STATIC__/upload/zan.png" alt="" class="zan"/>
+        </section>
+        <section class="swiper-slide swiper-slide4">
+            <img src="__STATIC__/upload/lt.png" alt="" width="10%"/>
+            <img src="__STATIC__/upload/top2.png" alt="" class="ani top" width="60%" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s"/>
+            <div class="po">
+                <div class="zu">
+                    {volist	name="list"	id="vo"}
+                    <div class='person ani' swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0s">
+                        <span><i class="myzan{$vo.id}">{$vo.voted}</i>赞<b onclick="fabulous('{$vo.name}')"><img src="__STATIC__/upload/hart.png" alt=""/></b></span>
+                        <div class="blue">
+                            <h3>{$vo.name}</h3>
+                            <img src="__STATIC__/upload/danghui.png" />
+                            <span>{$vo.community}</span>
+                        </div>
+                        <p>{$vo.introduction}</p>
+                    </div>
+                    {/volist}
+                </div>
+                <!--{$page}-->
+
+            </div>
+        </section>
+        <section class="swiper-slide swiper-slide4">
+            <img src="__STATIC__/upload/lt.png" alt="" width="10%"/>
+            <img src="__STATIC__/upload/top.png" alt="" class="ani top" width="60%" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s"/>
+            <div class="po">
+                {volist	name="shequ" id="vo"}
+                <div class='person person3 ani' swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0s">
+                    <div class="blue">
+                        <h3><i>1</i>{$vo.name}</h3>
+                    </div>
+                    <p>{$vo.Introduction}</p>
+                    <span><i  class="shequ{$vo.id}">{$vo.voted}</i>赞<b><img src="__STATIC__/upload/hart.png" onclick="addShequzan('{$vo.name}')" alt=""/></b></span>
+                </div>
+                {/volist}
+            </div>
+            <!--{$page2}-->
+        </section>
+
+        <!--先锋队伍榜 begin-->
+        <section class="swiper-slide swiper-slide5">
+            <div class="top-red">
+                <h3><img src="__STATIC__/upload/jiangbei.png" alt=""/>先锋队伍榜</h3>
+                <img src="__STATIC__/upload/qi.png" alt=""/>
+            </div>
+            <ul>
+                {volist	name="allcommunityList" id="vo"}
+                <li class="dui ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
+                    <h4><span>1</span>{$vo.name}</h4>
+                    <div>
+                        <span class="shequ{$vo.id}">{$vo.voted}</span>
+                        <img src="__STATIC__/upload/hart.png"  onclick="addShequzan('{$vo.name}')" alt=""/>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+
+            <div class="btm-red">
+            </div>
+
+        </section>
+        <!--先锋队伍榜 end-->
+        <section class="swiper-slide swiper-slide5">
+            <div class="top-red">
+                <h3><img src="__STATIC__/upload/jiangbei.png" alt=""/>风采人物榜</h3>
+                <img src="__STATIC__/upload/san.png" alt=""/>
+            </div>
+            <ul>
+                {volist	name="allUserList"	id="vo"}
+                <li class="dui ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
+                    <h4><span></span>{$vo.name}<b>{$vo.community}</b></h4>
+                    <div>
+                        <span class="myzan{$vo.id}">{$vo.voted}</span>
+                        <img src="__STATIC__/upload/hart.png" alt="" onclick="fabulous('{$vo.name}')"/>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+            <div class="btm-red">
+            </div>
+        </section>
+        <section class="swiper-slide swiper-slide1 swiper-slide8">
+            <img src="__STATIC__/upload/text4.png" alt="" class="ani resize text4" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s"/>
+            <p class="ani resize" swiper-animate-effect="slideInRight" swiper-animate-duration="1.5s" swiper-animate-delay="0.1s">--点“靓”光明主题系列活动</p>
+            <div class="ani resize" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">
+                <img src="__STATIC__/upload/erweima.png" alt=""/>
+            </div>
+            <p class="ani resize" swiper-animate-effect="slideInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s">详情长按二维码关注</p>
+            <p class="ani resize" swiper-animate-effect="slideInRight" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">光明街道公众号了解更多</p>
+        </section>
+    </div>
+    <div class="music">
+        <img src="__STATIC__/images/open.png" class="open" style="display: block;" alt="" width="100%"/>
+        <img src="__STATIC__/images/pause.png" class="pause" style="display: none" alt="" width="100%"/>
+    </div>
+    <audio id="audio_" src="__STATIC__/upload/bgm.mp3" autoplay loop="loop"></audio>
+    <img src="__STATIC__/images/arrow.png" style="width:20px;height:15px; top:460px; left:150px;" id="array" class="resize">
+</div>
+</div>
+{/block}
+
+{block name='footer'}
+<script>
+
+    scaleW=window.innerWidth/320;
+    scaleH=window.innerHeight/480;
+    var resizes = document.querySelectorAll('.resize');
+    for (var j=0; j<resizes.length; j++) {
+        resizes[j].style.width=parseInt(resizes[j].style.width)*scaleW+'px';
+        resizes[j].style.height=parseInt(resizes[j].style.height)*scaleH+'px';
+        resizes[j].style.top=parseInt(resizes[j].style.top)*scaleH+'px';
+        resizes[j].style.left=parseInt(resizes[j].style.left)*scaleW+'px';
+    }
+
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction : 'vertical',
+        pagination: '.swiper-pagination',
+        //virtualTranslate : true,
+        mousewheelControl : true,
+        onInit: function(swiper){
+            swiperAnimateCache(swiper);
+            swiperAnimate(swiper);
+        },
+        onSlideChangeEnd: function(swiper){
+            swiperAnimate(swiper);
+        },
+        onTransitionEnd: function(swiper){
+            swiperAnimate(swiper);
+        },
+        watchSlidesProgress: true,
+
+        onProgress: function(swiper){
+            for (var i = 0; i < swiper.slides.length; i++){
+                var slide = swiper.slides[i];
+                var progress = slide.progress;
+                var translate = progress*swiper.height/4;
+                scale = 1 - Math.min(Math.abs(progress * 0.5), 1);
+                var opacity = 1 - Math.min(Math.abs(progress/2),0.5);
+                slide.style.opacity = opacity;
+                es = slide.style;
+                es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,'+translate+'px,-'+translate+'px) scaleY(' + scale + ')';
+
+            }
+        },
+
+        onSetTransition: function(swiper, speed) {
+            for (var i = 0; i < swiper.slides.length; i++){
+                es = swiper.slides[i].style;
+                es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
+
+            }
+        }
+    })
+
+    function fabulous(name){
+        if(getLocal() == name){
+            alert('已经点赞过了')
+        }else {
+            $.ajax({
+                        url: "{:url('index/Index/addVote')}",
+                        data: {
+                            zan: name
+                        },
+                        type: "GET",
+                        dataType: 'json',
+                        success: (data) => {
+                        data ? alert('点赞成功') : alert('点赞失败');
+            var myid = data['0']['id'];
+            console.log(data['0']['id']);
+
+            $(".myzan"+ myid).html(data['0']['voted']);
+//        console.log(data['0']['voted']);
+            setLocal(data['0']['name']);
+        },
+            error:function(){
+                alert("已点过赞了");
+            }
+        });
+        }
+    }
+    function addShequzan(name) {
+        if(getLocal() == name){
+            alert('已经点赞过了')
+        }else {
+            $.ajax({
+                        url: "{:url('index/Index/addVoteSequ')}",
+                        data: {
+                            zan: name
+                        },
+                        type: "GET",
+                        dataType: 'json',
+                        success: (data) => {
+                        data ? alert('点赞成功') : alert('点赞失败');
+            var myid = data['0']['id'];
+            $(".shequ"+ myid).html(data['0']['voted']);
+            setLocal(data['0']['name']);
+            console.log(data['0']['voted']);
+        },
+            error:function(){
+                alert("已点过赞了");
+            }
+        });
+        }
+
+    }
+
+    function setLocal(value) {
+        localStorage.setItem('fab',value)
+    }
+
+    function getLocal() {
+        return localStorage.getItem('fab')
+    }
+</script>
+{/block}
+
